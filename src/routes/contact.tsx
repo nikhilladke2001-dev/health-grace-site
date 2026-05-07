@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, Clock, Navigation, CreditCard, Lock } from "lucide-react";
-import { useState } from "react";
+import { Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -26,8 +25,6 @@ const contactInfo = [
 ];
 
 function ContactPage() {
-  const [step, setStep] = useState<"details" | "payment">("details");
-
   return (
     <main>
       <section className="bg-gradient-to-br from-hero-gradient-start to-hero-gradient-end py-20">
@@ -73,16 +70,9 @@ function ContactPage() {
 
           {/* Contact Form */}
           <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-            <div className="mb-6 flex items-center gap-3">
-              <div className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${step === "details" ? "bg-secondary text-white" : "bg-secondary/20 text-secondary"}`}>1</div>
-              <div className="h-0.5 flex-1 bg-border" />
-              <div className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${step === "payment" ? "bg-secondary text-white" : "bg-secondary/20 text-muted-foreground"}`}>2</div>
-            </div>
-            {step === "details" ? (
-              <>
                 <h2 className="font-heading text-2xl font-bold text-card-foreground">Book an Appointment</h2>
-                <p className="mt-1 text-sm text-muted-foreground">Fill in your details, then proceed to payment.</p>
-                <form className="mt-6 space-y-5" onSubmit={(e) => { e.preventDefault(); setStep("payment"); }}>
+                <p className="mt-1 text-sm text-muted-foreground">Fill in your details to schedule an appointment.</p>
+                <form className="mt-6 space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Appointment booked! You will receive a confirmation email shortly."); }}>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name</Label>
@@ -116,47 +106,8 @@ function ContactPage() {
                     <Label htmlFor="message">Additional Notes</Label>
                     <Textarea id="message" rows={3} placeholder="Describe your symptoms or concerns..." />
                   </div>
-                  <Button type="submit" size="lg" className="w-full">Continue to Payment</Button>
+                  <Button type="submit" size="lg" className="w-full">Book Appointment</Button>
                 </form>
-              </>
-            ) : (
-              <>
-                <h2 className="font-heading text-2xl font-bold text-card-foreground flex items-center gap-2">
-                  <CreditCard className="h-6 w-6 text-secondary" /> Payment Details
-                </h2>
-                <p className="mt-1 text-sm text-muted-foreground">Consultation fee: <span className="font-semibold text-foreground">$150.00</span></p>
-                <form className="mt-6 space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Booking confirmed! You will receive a confirmation email shortly."); setStep("details"); }}>
-                  <div className="space-y-2">
-                    <Label htmlFor="cardName">Name on Card</Label>
-                    <Input id="cardName" placeholder="John Doe" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="cardNumber">Card Number</Label>
-                    <Input id="cardNumber" placeholder="1234 5678 9012 3456" maxLength={19} required />
-                  </div>
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="expiry">Expiry Date</Label>
-                      <Input id="expiry" placeholder="MM/YY" maxLength={5} required />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="cvv">CVV</Label>
-                      <Input id="cvv" placeholder="123" maxLength={4} required />
-                    </div>
-                  </div>
-                  <div className="rounded-lg bg-surface p-4">
-                    <div className="flex justify-between text-sm"><span className="text-muted-foreground">Consultation Fee</span><span className="text-foreground font-medium">$150.00</span></div>
-                    <div className="mt-2 flex justify-between text-sm"><span className="text-muted-foreground">Service Tax</span><span className="text-foreground font-medium">$12.00</span></div>
-                    <div className="mt-3 border-t border-border pt-3 flex justify-between font-semibold"><span>Total</span><span>$162.00</span></div>
-                  </div>
-                  <div className="flex gap-3">
-                    <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep("details")}>Back</Button>
-                    <Button type="submit" size="lg" className="flex-1 gap-2"><Lock className="h-4 w-4" /> Pay & Book</Button>
-                  </div>
-                  <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1"><Lock className="h-3 w-3" /> Your payment information is secure and encrypted</p>
-                </form>
-              </>
-            )}
           </div>
         </div>
       </section>
