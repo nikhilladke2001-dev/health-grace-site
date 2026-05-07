@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -59,8 +59,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/20 pt-8 text-center text-sm opacity-60">
-          © {new Date().getFullYear()} MediCare Hospital. All rights reserved.
+        <div className="mt-12 border-t border-white/20 pt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          <p className="text-sm opacity-60">© {new Date().getFullYear()} MediCare Hospital. All rights reserved.</p>
+          <div className="flex items-center gap-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/25">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/25">
+              <Twitter className="h-4 w-4" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/25">
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/25">
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/25">
+              <Youtube className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
