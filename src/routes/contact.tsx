@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -107,6 +107,47 @@ function ContactPage() {
                 Send Message
               </Button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="bg-surface py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Find Us</p>
+            <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">Our Location</h2>
+            <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+              Conveniently located in the heart of New York City with easy access to public transit and parking.
+            </p>
+          </div>
+          <div className="mt-10 overflow-hidden rounded-2xl border border-border shadow-lg">
+            <iframe
+              title="MediCare Hospital Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076797932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sus!4v1635200000000"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            />
+          </div>
+          <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=40.7407679,-74.0042588"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="lg" className="gap-2">
+                <Navigation className="h-4 w-4" />
+                Get Directions
+              </Button>
+            </a>
+            <p className="text-sm text-muted-foreground">
+              123 Medical Center Drive, Suite 100, New York, NY 10001
+            </p>
           </div>
         </div>
       </section>
