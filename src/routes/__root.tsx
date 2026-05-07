@@ -77,10 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "MediCare Hospital — World-Class Healthcare" },
       { name: "description", content: "MediCare Hospital provides compassionate, world-class healthcare with expert physicians and cutting-edge technology." },
       { property: "og:title", content: "MediCare Hospital — World-Class Healthcare" },
-      { property: "og:description", content: "Compassionate, world-class healthcare for your family." },
+      { property: "og:description", content: "MediCare Hospital provides compassionate, world-class healthcare with expert physicians and cutting-edge technology." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "MediCare Hospital — World-Class Healthcare" },
+      { name: "twitter:description", content: "MediCare Hospital provides compassionate, world-class healthcare with expert physicians and cutting-edge technology." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3298de1c-26f0-4b59-bcb1-74dfd81a1ae4/id-preview-11369156--5791e8fd-9954-4116-9287-ccd7bcbbb68f.lovable.app-1778160664548.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3298de1c-26f0-4b59-bcb1-74dfd81a1ae4/id-preview-11369156--5791e8fd-9954-4116-9287-ccd7bcbbb68f.lovable.app-1778160664548.png" },
     ],
     links: [
       {
