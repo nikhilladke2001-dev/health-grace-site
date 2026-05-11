@@ -8,6 +8,7 @@ const navLinks = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
+  { to: "/admin", label: "Admin" },
 ] as const;
 
 export function Header() {
