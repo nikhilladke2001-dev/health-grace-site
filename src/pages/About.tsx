@@ -1,18 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import teamImage from "@/assets/medical-team.jpg";
 import { CheckCircle } from "lucide-react";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us — MediCare Hospital" },
-      { name: "description", content: "Learn about MediCare Hospital's 40-year legacy of compassionate, world-class healthcare and our team of 200+ specialists." },
-      { property: "og:title", content: "About Us — MediCare Hospital" },
-      { property: "og:description", content: "40 years of compassionate healthcare excellence." },
-    ],
-  }),
-  component: AboutPage,
-});
 
 const values = [
   { title: "Patient-Centered Care", desc: "Every decision we make starts with what's best for our patients." },
@@ -21,19 +9,15 @@ const values = [
   { title: "Compassion", desc: "We treat every patient with dignity, empathy, and respect." },
 ];
 
-function AboutPage() {
+export default function About() {
+  useEffect(() => { document.title = "About Us — MediCare Hospital"; }, []);
   return (
     <main>
       <section className="bg-gradient-to-br from-hero-gradient-start to-hero-gradient-end py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent-warm">About Us</p>
-          <h1 className="mt-2 font-heading text-4xl font-extrabold text-white sm:text-5xl">
-            A Legacy of Healing
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            For over four decades, MediCare Hospital has been a beacon of hope and
-            health for our community.
-          </p>
+          <h1 className="mt-2 font-heading text-4xl font-extrabold text-white sm:text-5xl">A Legacy of Healing</h1>
+          <p className="mt-4 max-w-2xl text-lg text-white/80">For over four decades, MediCare Hospital has been a beacon of hope and health for our community.</p>
         </div>
       </section>
 
@@ -41,27 +25,11 @@ function AboutPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="font-heading text-3xl font-bold text-foreground">Our Story</h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              Founded in 1985, MediCare Hospital began as a small community clinic with a
-              mission to provide accessible, high-quality healthcare. Over the years, we've
-              grown into a world-class medical center with over 200 physicians, 50 specialties,
-              and a reputation for clinical excellence.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              Today, we serve hundreds of thousands of patients annually, combining advanced
-              medical technology with the compassionate, personalized care that has defined
-              us from day one.
-            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">Founded in 1985, MediCare Hospital began as a small community clinic with a mission to provide accessible, high-quality healthcare. Over the years, we've grown into a world-class medical center with over 200 physicians, 50 specialties, and a reputation for clinical excellence.</p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">Today, we serve hundreds of thousands of patients annually, combining advanced medical technology with the compassionate, personalized care that has defined us from day one.</p>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-lg">
-            <img
-              src={teamImage}
-              alt="MediCare medical team"
-              width={1024}
-              height={1024}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+            <img src={teamImage} alt="MediCare medical team" width={1024} height={1024} loading="lazy" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>

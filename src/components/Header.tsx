@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -28,14 +28,18 @@ export function Header() {
 
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.to}
               to={link.to}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-primary font-semibold" }}
+              end={link.to === "/"}
+              className={({ isActive }) =>
+                `rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground ${
+                  isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                }`
+              }
             >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -58,15 +62,19 @@ export function Header() {
         <div className="border-t border-border bg-white px-4 py-4 md:hidden">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.to}
                 to={link.to}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted"
-                activeProps={{ className: "text-primary bg-muted" }}
+                end={link.to === "/"}
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 text-sm font-medium hover:bg-muted ${
+                    isActive ? "text-primary bg-muted" : "text-muted-foreground"
+                  }`
+                }
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
             <Link to="/contact" onClick={() => setMobileOpen(false)}>
               <Button className="mt-2 w-full" size="sm">Book Appointment</Button>
